@@ -34,10 +34,6 @@ function App() {
   const [ disabled, setDisabled ] = useState(defaultDisabled);
 
   // HELPERS //
-  const getUsers = () => {
-
-  }
-
   const postUser = newUser => {
     axios.post('https://reqres.in/api/users', newUser)
       .then(res => {
@@ -72,10 +68,6 @@ function App() {
 
   // SIDE EFFECTS //
   useEffect(() => {
-    getUsers();
-  }, [])
-
-  useEffect(() => {
     FormSchema.isValid(formValues)
       .then(valid => setDisabled(!valid));
   }, [formValues])
@@ -84,7 +76,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Header</h1>
+        <h1>List of Users</h1>
       </header>
       <div className='container'>
         <Form
@@ -94,6 +86,14 @@ function App() {
           disabled={disabled}
           errors={formErrors}
         />
+        {users.map(user => {
+          return(
+            <div className='user-card' key={user.id}>
+              <h4>{user.name}</h4>
+              <a href={`mailto:${user.email}`}>{user.email}</a>
+            </div>
+          )
+        })}
       </div>
     </div>
   );

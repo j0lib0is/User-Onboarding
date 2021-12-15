@@ -115,16 +115,34 @@ ul {
 body {
 	font-size: 1rem;
 	line-height: 1.5;
+	background-color: whitesmoke;
+}
+h1 {
+	font-size: 2rem;
+}
+h2 {
+	font-size: 1.8rem;
+}
+h3 {
+	font-size: 1.6rem;
+}
+h4 {
+	font-size: 1.4rem;
+}
+h5 {
+	font-size: 1.2rem;
+}
+h6 {
+	font-size: 1rem;
 }
 
 .App-header {
-	background-color: #282c34;
-	/* min-height: 100vh; */
+	background-color: blueviolet;
+	padding: 16px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	font-size: calc(10px + 2vmin);
 	color: white;
 }
 
@@ -141,7 +159,9 @@ body {
 
 .form-wrapper {
 	margin: 0 auto;
+	margin-bottom: 24px;
 	padding: 24px;
+	background-color: white;
 	border-radius: 8px;
 	box-shadow: 4px 4px 24px rgba(0, 0, 0, 0.16);
 }
@@ -177,7 +197,7 @@ body {
 	padding: 16px 24px;
 	border: none;
 	border-radius: 4px;
-	background-color: blue;
+	background-color: blueviolet;
 	color: white;
 	cursor: pointer;
 	font-size: 0.8rem;
@@ -186,7 +206,7 @@ body {
 	letter-spacing: 0.1rem;
 }
 .form button:hover {
-	background-color: darkblue;
+	background-color: darkviolet;
 }
 .form button:disabled {
 	background-color: whitesmoke;
@@ -194,4 +214,17 @@ body {
 }
 .form .errors {
 	color: firebrick;
+}
+
+.user-card {
+	margin: 0 auto;
+	margin-bottom: 8px;
+	padding: 24px;
+	background-color: white;
+	border-radius: 8px;
+	border: 1px solid lightgray;
+}
+.user-card a {
+	color: blueviolet;
+	font-style: italic;
 }
