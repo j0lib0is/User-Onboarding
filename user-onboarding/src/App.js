@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
+import axios from 'axios';
+import * as yup from 'yup';
+import FormSchema from './validation/formSchema';
 import './App.css';
 import Form from './components/Form';
 
@@ -32,14 +34,26 @@ function App() {
   const [ disabled, setDisabled ] = useState(defaultDisabled);
 
   // HELPERS //
+  const validate = (name, value) => {
+    yup.reach(FormSchema, name)
+      .validate(value)
+      .then(() => setFormErrors({ ...formErrors, [name]: '' }))
+      .catch(err => setFormErrors({ ...formErrors, [name]: err.errors[0] }))
+  }
 
   // EVENT HANDLERS //
   const changeHandler = (name, value) => {
-    
+    validate(name, value);
+    setFormValues({ ...formValues, [name]: value });
   }
 
   const submitHandler = () => {
-
+    const newUser = {
+      name: formValues.name.trim(),
+      email: formValues.email.trim(),
+      password: formValues.password.trim(),
+      tos: formValues.tos
+    }
   }
 
   // SIDE EFFECTS //
