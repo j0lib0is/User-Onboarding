@@ -34,7 +34,7 @@ function App() {
   // HELPERS //
 
   // EVENT HANDLERS //
-  const changeHandler = () => {
+  const changeHandler = (name, value) => {
     
   }
 
