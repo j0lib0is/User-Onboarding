@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import * as yup from 'yup';
 import FormSchema from './validation/formSchema';
@@ -34,6 +34,19 @@ function App() {
   const [ disabled, setDisabled ] = useState(defaultDisabled);
 
   // HELPERS //
+  const getUsers = () => {
+
+  }
+
+  const postUser = newUser => {
+    axios.post('https://reqres.in/api/users', newUser)
+      .then(res => {
+        setUsers([ res.data, ...users ]);
+      })
+      .catch(err => console.error(err))
+      .finally(setFormValues(defaultValues))
+  }
+
   const validate = (name, value) => {
     yup.reach(FormSchema, name)
       .validate(value)
@@ -54,9 +67,18 @@ function App() {
       password: formValues.password.trim(),
       tos: formValues.tos
     }
+    postUser(newUser);
   }
 
   // SIDE EFFECTS //
+  useEffect(() => {
+    getUsers();
+  }, [])
+
+  useEffect(() => {
+    FormSchema.isValid(formValues)
+      .then(valid => setDisabled(!valid));
+  }, [formValues])
 
   // RETURN //
   return (
