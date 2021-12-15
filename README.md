@@ -21,11 +21,11 @@ We've seen many different styles of form management by now -- simple to complex.
 
 We want to create a form to onboard a new user to our system. We need _at least_ the following pieces of information about our new user:
 
--   [ ] Name
--   [ ] Email
--   [ ] Password
--   [ ] Terms of Service (checkbox)
--   [ ] A Submit button to send our form data to the server.
+-   [x] Name
+-   [x] Email
+-   [x] Password
+-   [x] Terms of Service (checkbox)
+-   [x] A Submit button to send our form data to the server.
 
 #### Implement Form Validation and Error Messaging
 
@@ -46,7 +46,7 @@ Being able to `POST` data is a key skill of any developer, no matter your skill 
 
 When you get your data back, you will want to do something with it, right? Let's display a list of users in our app.
 
--   [ ] Set up a state property called `users` that is initialized with an empty array
+-   [x] Set up a state property called `users` that is initialized with an empty array
 -   [ ] Every time you make a `POST` request, and get that new user data back, update your `users` state with the new user added to the array
 -   [ ] Render `users` in your app. You can use the html pre tag and JSON.stringify() method to display your post request.
 
@@ -54,7 +54,7 @@ When you get your data back, you will want to do something with it, right? Let's
 
 The following are stretch goals that you should attempt _after_ you meet MVP for your project:
 
--   [ ] Add basic styling to your form in your app. Make it look pretty with any styling method you choose.
+-   [x] Add basic styling to your form in your app. Make it look pretty with any styling method you choose.
 -   [ ] Implement a dropdown menu in your form. Add a `role` value to your state and add a dropdown with different roles for your users.
 -   [ ] Create 3 new inputs inside your form of your choice along with corresponding validation and error messaging
 -   [ ] Add to your existing handling so that, if a user inputs their email as `waffle@syrup.com`, they receive an error message in their form that says _"That email is already taken."_
