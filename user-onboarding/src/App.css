@@ -223,8 +223,25 @@ h6 {
 	background-color: white;
 	border-radius: 8px;
 	border: 1px solid lightgray;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 .user-card a {
 	color: blueviolet;
 	font-style: italic;
+}
+.user-card button {
+	padding: 8px;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	background-color: white;
+	cursor: pointer;
+}
+.user-card button:hover {
+	background-color: whitesmoke;
+	border: 1px solid lightgray;
+}
+.user-card img {
+	width: 16px;
 }

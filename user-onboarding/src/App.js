@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+
 import * as yup from 'yup';
 import FormSchema from './validation/formSchema';
+
 import './App.css';
+
 import Form from './components/Form';
+
+import deleteIcon from './assets/delete-icon.png';
 
 
 // DEFAULTS
@@ -66,6 +71,14 @@ function App() {
     postUser(newUser);
   }
 
+  const deleteHandler = id => {
+    axios.delete(`https://reqres.in/api/users/${id}`)
+      .then(res => {
+        setUsers(users.filter(item => item.id !== id));
+      })
+      .catch(err => console.error(err))
+  }
+
   // SIDE EFFECTS //
   useEffect(() => {
     FormSchema.isValid(formValues)
@@ -89,8 +102,11 @@ function App() {
         {users.map(user => {
           return(
             <div className='user-card' key={user.id}>
-              <h4>{user.name}</h4>
-              <a href={`mailto:${user.email}`}>{user.email}</a>
+              <div className='card-body'>
+                <h4>{user.name}</h4>
+                <a href={`mailto:${user.email}`}>{user.email}</a>
+              </div>
+              <button onClick={() => deleteHandler(user.id)}><img src={deleteIcon}/></button>
             </div>
           )
         })}

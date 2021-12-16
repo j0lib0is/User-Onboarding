@@ -63,13 +63,14 @@ describe('List of Users', () => {
 				.should('not.be.disabled');
 		})
 
-		it('Add a new user', () => {
+		it('Add a new user and delete it', () => {
 			nameInput().type('Jason Bourne');
 			emailInput().type('bourne@ultimatum.com');
 			passwordInput().type('Password123');
 			tosCheckbox().check();
 			submitButton().click();
-			cy.contains(/Jason Bourne/).should('exist');
+			cy.contains('Jason Bourne').should('exist');
+			cy.contains('Jason Bourne').parents().siblings('button:nth-of-type(1)').click();
 		})
 	}) // CLOSE INNER DESCRIBE
 }) // CLOSE OUTER DESCRIBE
